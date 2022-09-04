@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Tiro+Gurmukhi&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10.25px;
+  line-height: 150%
+}
+
+header {
+  background-color: #F55A5A;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header>img {
+  width: 24px;
+  height: 24px;
+}
+
+.header--text {
+  padding-left: 7px;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.075em;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.section--list {
+  margin: 36px 40px;
+}
+
+.location {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.location--image {
+  height: 168px;
+  width: 126px;
+  object-fit: cover;
+  border-radius: 5px;
+
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.location--content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin-left: 20px;
+}
+
+.location--header {
+  margin-bottom: 4px;
+}
+
+.location--header>img {
+  margin-right: 4px;
+}
+
+.location--header>span {
+  line-height: 12px;
+  letter-spacing: 0.17em;
+  color: #2B283A;
+}
+
+.location--header>a {
+  margin-left: 7px;
+  line-height: 12px;
+  text-decoration-line: underline;
+  color: #918E9B;
+}
+
+.location--content>h1 {
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
+  color: #2B283A;
+  margin-bottom: 14px;
+  margin-top: 0px;
+}
+
+.location--content>h4 {
+  font-weight: 700;
+  line-height: 12px;
+  color: #2B283A;
+  margin-top: 0px;
+  margin-bottom: 9px;
+}
+
+.location--content>p {
+  line-height: 150%;
+  color: #2B283A;
+  width: 326px;
+  margin-top: 0px;
+}
+
+.location--hr {
+  align-self: center;
+  width: 478px;
+  border: 1px solid #F5F5F5;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
