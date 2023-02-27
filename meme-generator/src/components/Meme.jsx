@@ -1,5 +1,4 @@
-import { useState } from "react";
-import memeData from "../assets/memeData"
+import { useEffect, useState } from "react";
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -15,24 +14,52 @@ export default function Meme() {
     randomImage: ""
   })
 
-  const [allMemeData, setAllMemeData] = useState(memeData);
+  const [allMemeData, setAllMemeData] = useState([]);
 
   function handleGetMemeClick() {
-    var randomIndex = getRandomInt(0, allMemeData.data.memes.length);
+    var randomIndex = getRandomInt(0, allMemeData.length);
     setMeme(prevMeme => ({
       ...prevMeme,
-      randomImage: allMemeData.data.memes[randomIndex].url
+      randomImage: allMemeData[randomIndex].url
     }))
   }
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setMeme(prevMeme => ({
+      ...prevMeme,
+      [name]: value
+    }))
+  }
+
+  useEffect(() => {
+    fetch("https://api.imgflip.com/get_memes")
+      .then(res => res.json())
+      .then(data => setAllMemeData(data.data.memes))
+  }, [])
 
   return (
     <div className="meme">
       <div className="meme--inputs">
-        <input type="input" name="topText" placeholder="Enter the top text." />
-        <input type="input" name="bottomText" placeholder="Enter the bottom text." />
+        <input
+          type="input"
+          name="topText"
+          placeholder="Enter the top text."
+          onChange={handleChange}
+          value={meme.topText} />
+        <input
+          type="input"
+          name="bottomText"
+          placeholder="Enter the bottom text."
+          onChange={handleChange}
+          value={meme.bottomText} />
       </div>
       <button onClick={handleGetMemeClick}>Get a new meme image</button>
-      <img className="meme--image" src={meme.randomImage} />
+      <div className="meme--container">
+        <img className="meme--image" src={meme.randomImage} />
+        <h2 className="meme--text top">{meme.topText}</h2>
+        <h2 className="meme--text bottom">{meme.bottomText}</h2>
+      </div>
     </div>
   )
 }
